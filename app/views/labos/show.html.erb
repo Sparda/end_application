@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Labo:</b>
+  <%= @labo.labo_id %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @labo.student_id %>
+</p>
+
+<p>
+  <b>Aanwezig:</b>
+  <%= @labo.aanwezig %>
+</p>
+
+
+<%= link_to 'Edit', edit_labo_path(@labo) %> |
+<%= link_to 'Back', labos_path %>

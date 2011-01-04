@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Labo:</b>
+  <%= @aanwezigheden.labo_id %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @aanwezigheden.student_id %>
+</p>
+
+<p>
+  <b>Aanwezig:</b>
+  <%= @aanwezigheden.aanwezig %>
+</p>
+
+
+<%= link_to 'Edit', edit_aanwezigheden_path(@aanwezigheden) %> |
+<%= link_to 'Back', aanwezighedens_path %>

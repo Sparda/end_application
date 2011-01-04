@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  voornaam: MyString
+  familienaam: MyString
+  email: MyString
+  wachtwoord: MyString
+
+two:
+  voornaam: MyString
+  familienaam: MyString
+  email: MyString
+  wachtwoord: MyString

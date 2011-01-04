@@ -1,0 +1,2 @@
+module LabosHelper
+end
