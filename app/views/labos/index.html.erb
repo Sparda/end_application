@@ -1,10 +1,20 @@
+ <% if !session[:user_id] %>
+U bent niet bevoegd om deze pagina te bekijken
+<% else %>
+Welkom <strong><%=session[:user_id]%></strong>.
+<%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
+<br />
+<%= link_to 'docenten', "../gebruikers" %>
+labos
+<%= link_to 'studenten', "../studentens" %>
+<%= link_to 'aanwezigheden', "../aanwezighedens" %>
+<br />
 <h1>Listing labos</h1>
 
 <table>
   <tr>
-    <th>Labo</th>
-    <th>Student</th>
-    <th>Aanwezig</th>
+    <th>Naam</th>
+    <th>Docent</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +22,8 @@
 
 <% @labos.each do |labo| %>
   <tr>
-    <td><%= labo.labo_id %></td>
-    <td><%= labo.student_id %></td>
-    <td><%= labo.aanwezig %></td>
+    <td><%= labo.naam %></td>
+    <td><%= labo.docent_id %></td>
     <td><%= link_to 'Show', labo %></td>
     <td><%= link_to 'Edit', edit_labo_path(labo) %></td>
     <td><%= link_to 'Destroy', labo, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -25,3 +34,4 @@
 <br />
 
 <%= link_to 'New Labo', new_labo_path %>
+<% end %>

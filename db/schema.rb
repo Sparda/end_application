@@ -10,12 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110104210818) do
+ActiveRecord::Schema.define(:version => 20110104224306) do
 
 # Could not dump table "aanwezighedens" because of following ArgumentError
 #   invalid date
 
 # Could not dump table "gebruikers" because of following ArgumentError
+#   invalid date
+
+# Could not dump table "labos" because of following ArgumentError
 #   invalid date
 
 # Could not dump table "studentens" because of following ArgumentError

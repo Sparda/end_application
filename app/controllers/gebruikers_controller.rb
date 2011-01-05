@@ -2,17 +2,23 @@ class GebruikersController < ApplicationController
   # GET /gebruikers
   # GET /gebruikers.xml
   def index
-    @gebruikers = Gebruiker.all
+   if !session[:user_id]
+		redirect_to :action=> 'login'
+   else
+   @gebruikers = Gebruiker.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @gebruikers }
     end
   end
-
+end
   # GET /gebruikers/1
   # GET /gebruikers/1.xml
   def show
+   if !session[:user_id]
+	  redirect_to :action=> 'login'
+   else
     @gebruiker = Gebruiker.find(params[:id])
 
     respond_to do |format|
@@ -20,26 +26,36 @@ class GebruikersController < ApplicationController
       format.xml  { render :xml => @gebruiker }
     end
   end
-
+end
   # GET /gebruikers/new
   # GET /gebruikers/new.xml
   def new
-    @gebruiker = Gebruiker.new
+  	 if !session[:user_id]
+		redirect_to :action=> 'login'
+	 else
+      @gebruiker = Gebruiker.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @gebruiker }
     end
   end
-
+end
   # GET /gebruikers/1/edit
   def edit
-    @gebruiker = Gebruiker.find(params[:id])
+  	 if !session[:user_id]
+		redirect_to :action=> 'login'
+	 else
+      @gebruiker = Gebruiker.find(params[:id])
   end
+ end
 
   # POST /gebruikers
   # POST /gebruikers.xml
   def create
+   if !session[:user_id]
+	redirect_to :action=> 'login'
+   else
     @gebruiker = Gebruiker.new(params[:gebruiker])
 
     respond_to do |format|
@@ -52,10 +68,13 @@ class GebruikersController < ApplicationController
       end
     end
   end
-
+end
   # PUT /gebruikers/1
   # PUT /gebruikers/1.xml
   def update
+  if !session[:user_id]
+	redirect_to :action=> 'login'
+  else
     @gebruiker = Gebruiker.find(params[:id])
 
     respond_to do |format|
@@ -68,16 +87,46 @@ class GebruikersController < ApplicationController
       end
     end
   end
-
+end
   # DELETE /gebruikers/1
   # DELETE /gebruikers/1.xml
   def destroy
-    @gebruiker = Gebruiker.find(params[:id])
+   if !session[:user_id]
+	redirect_to :action=> 'login'
+	else
+	@gebruiker = Gebruiker.find(params[:id])
     @gebruiker.destroy
 
     respond_to do |format|
       format.html { redirect_to(gebruikers_url) }
       format.xml  { head :ok }
     end
+  end
+end
+
+def login
+
+
+end
+
+
+def logout
+ if session[:user_id]
+  reset_session
+  redirect_to :action=> 'login'
+end
+end
+ 
+ def authenticate
+@gebruiker = Gebruiker.new(params[:userform])
+valid_user = Gebruiker.find(:first,:conditions => ["voornaam = ? and wachtwoord = ?",@gebruiker.voornaam, @gebruiker.wachtwoord])
+
+if valid_user
+session[:user_id]=valid_user.voornaam
+redirect_to :action => 'index'
+else
+flash[:notice] = "Invalid User/Password"
+redirect_to :action=> 'login'
+end
   end
 end

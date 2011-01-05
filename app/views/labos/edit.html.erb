@@ -1,6 +1,12 @@
+<% if !session[:user_id] %>
+U bent niet bevoegd om deze pagina te bekijken
+<% else %>
+Welkom <strong><%=session[:user_id]%></strong>.
+<%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
 <h1>Editing labo</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @labo %> |
 <%= link_to 'Back', labos_path %>
+<% end %>
