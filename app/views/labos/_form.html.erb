@@ -10,16 +10,35 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :naam %><br />
-    <%= f.text_field :naam %>
-  </div>
-  <div class="field">
-    <%= f.label :docent_id %><br />
-    <%= f.text_field :docent_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <table>
+  	<tr>
+	<div class="field">
+		<td>
+			<%= f.label :naam %>
+		</td>
+		<td>
+			<%= f.text_field :naam %>
+		</td>
+	</div>
+	</tr>
+	<tr>
+	  <div class="field">
+		<td>
+			<%= f.label :docent_id %>
+		</td>
+		<td>
+			<%= f.text_field :docent_id %>
+		</td>
+	   </div>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="right">
+			<div class="actions">
+				<%= f.submit %>
+			</div>
+		</td>		
+	</tr>
+  </table>          
 <% end %>

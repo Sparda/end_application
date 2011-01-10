@@ -1,13 +1,13 @@
 <% if !session[:user_id] %>
-U bent niet bevoegd om deze pagina te bekijken
+U heeft niet de juiste bevoegdheid om deze pagina te bekijken
 <% else %>
 Welkom <strong><%=session[:user_id]%></strong>.
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
-<h1>Editing aanwezigheden</h1>
+<h1>Aanwezigheden editeren</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @aanwezigheden %> |
-<%= link_to 'Back', aanwezighedens_path %>
+<%= link_to 'Tonen', @aanwezigheden %> |
+<%= link_to 'Ga terug', aanwezighedens_path %>
 <% end %>
 

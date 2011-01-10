@@ -44,7 +44,7 @@ class StudentensController < ApplicationController
 
     respond_to do |format|
       if @studenten.save
-        format.html { redirect_to(@studenten, :notice => 'Studenten was successfully created.') }
+        format.html { redirect_to(@studenten, :notice => 'De student is succesvol aangemaakt.') }
         format.xml  { render :xml => @studenten, :status => :created, :location => @studenten }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class StudentensController < ApplicationController
 
     respond_to do |format|
       if @studenten.update_attributes(params[:studenten])
-        format.html { redirect_to(@studenten, :notice => 'Studenten was successfully updated.') }
+        format.html { redirect_to(@studenten, :notice => 'De student is succesvol aangepast.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

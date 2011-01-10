@@ -2,26 +2,49 @@
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Voornaam:</b>
-  <%= @gebruiker.voornaam %>
-</p>
 
-<p>
-  <b>Familienaam:</b>
-  <%= @gebruiker.familienaam %>
-</p>
+<table>
+	<tr>
+		<td>
+			<b>id</b>
+		</td>
+		<td>
+			<%= @gebruiker.id %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Voornaam:</b>
+		</td>
+		<td>
+			<%= @gebruiker.voornaam %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Familienaam:</b>
+		</td>
+		<td>
+			<%= @gebruiker.familienaam %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Email:</b>
+		</td>
+		<td>
+			<%= @gebruiker.email %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Wachtwoord:</b>
+		</td>
+		<td>
+			<%= @gebruiker.wachtwoord %>
+		</td>
+	</tr>
+</table>
 
-<p>
-  <b>Email:</b>
-  <%= @gebruiker.email %>
-</p>
-
-<p>
-  <b>Wachtwoord:</b>
-  <%= @gebruiker.wachtwoord %>
-</p>
-
-
-<%= link_to 'Edit', edit_gebruiker_path(@gebruiker) %> |
-<%= link_to 'Back', gebruikers_path %>
+<%= link_to 'Aanpassen', edit_gebruiker_path(@gebruiker) %> |
+<%= link_to 'Ga terug', gebruikers_path %>

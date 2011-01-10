@@ -1,37 +1,52 @@
 <% if !session[:user_id] %>
-U bent niet bevoegd om deze pagina te bekijken
+U heeft niet de juiste bevoegdheid om deze pagina te bekijken
 <% else %>
 Welkom <strong><%=session[:user_id]%></strong>.
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
+<br /><br />
+
+<table>
+	<tr>
+		<td>U bent hier:</td>
+		<td>Studenten</td>
+	</tr>
+	<tr>
+		<td>
+			Ga naar:
+		</td>
+		<td>
+			<%= link_to 'Docenten', "../gebruikers" %>
+			<%= link_to 'Labos', "../labos" %>
+			<%= link_to 'Aanwezigheden', "../aanwezighedens" %>			
+		</td>
+	</tr>
+</table>
 <br />
-<%= link_to 'docenten', "../gebruikers" %>
-<%= link_to 'labos', "../labos" %>
-studenten
-<%= link_to 'aanwezigheden', "../aanwezighedens" %>
-<br />
-<h1>Listing studentens</h1>
+<h1>Lijst van studenten</h1>
 
 <table>
   <tr>
+  	<th>id</th>
     <th>Voornaam</th>
     <th>Familienaam</th>
     <th></th>
-    <th></th>
+    <th>Acties</th>
     <th></th>
   </tr>
 
 <% @studentens.each do |studenten| %>
   <tr>
+  	<td><%= studenten.id %></td>
     <td><%= studenten.voornaam %></td>
     <td><%= studenten.familienaam %></td>
-    <td><%= link_to 'Show', studenten %></td>
-    <td><%= link_to 'Edit', edit_studenten_path(studenten) %></td>
-    <td><%= link_to 'Destroy', studenten, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Tonen', studenten %></td>
+    <td><%= link_to 'Aanpassen', edit_studenten_path(studenten) %></td>
+    <td><%= link_to 'Verwijderen', studenten, :confirm => 'Bent u zeker dat u dit item wil verwijderen ?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Studenten', new_studenten_path %>
+<%= link_to 'Nieuwe student', new_studenten_path %>
 <% end %>

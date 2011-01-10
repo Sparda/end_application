@@ -1,8 +1,8 @@
 Welkom <strong><%=session[:user_id]%></strong>.
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
-<h1>Editing gebruiker</h1>
+<h1>Docent aanpassen</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @gebruiker %> |
-<%= link_to 'Back', gebruikers_path %>
+<%= link_to 'Tonen', @gebruiker %> |
+<%= link_to 'Ga terug', gebruikers_path %>

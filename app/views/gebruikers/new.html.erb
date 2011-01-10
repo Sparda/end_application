@@ -1,7 +1,7 @@
  Welkom <strong><%=session[:user_id]%></strong>.
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
-<h1>New gebruiker</h1>
+<h1>Nieuwe docent</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', gebruikers_path %>
+<%= link_to 'Ga terug', gebruikers_path %>

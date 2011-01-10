@@ -10,16 +10,27 @@
       </ul>
     </div>
   <% end %>
+  <table>
+  	<tr>
+		<div class="field">
+		<td><%= f.label :voornaam %></td>
+		<td><%= f.text_field :voornaam %></td>
+		</div>
+	</tr>
+	<tr>
+		<div class="field">
+		<td><%= f.label :familienaam %></td>
+		<td><%= f.text_field :familienaam %></td>
+		</div>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="right">
+			  <div class="actions">
+    			<%= f.submit %>
+			  </div>
+		</td>
+	</tr>
+  </table>
 
-  <div class="field">
-    <%= f.label :voornaam %><br />
-    <%= f.text_field :voornaam %>
-  </div>
-  <div class="field">
-    <%= f.label :familienaam %><br />
-    <%= f.text_field :familienaam %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

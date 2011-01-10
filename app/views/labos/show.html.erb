@@ -1,21 +1,37 @@
 <% if !session[:user_id] %>
-U bent niet bevoegd om deze pagina te bekijken
+U heeft niet de juiste bevoegdheid om deze pagina te bekijken
 <% else %>
 Welkom <strong><%=session[:user_id]%></strong>.
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
 <p id="notice"><%= notice %></p>
+<table>
+<tr>
+	<td>
+  		<b>id</b>
+	</td>
+  	<td>
+  		<%= @labo.id %>
+  	</td>
+</tr>
+<tr>
+	<td>
+  		<b>Naam:</b>
+	</td>
+  	<td>
+  		<%= @labo.naam %>
+  	</td>
+</tr>
 
-<p>
-  <b>Naam:</b>
-  <%= @labo.naam %>
-</p>
+<tr>
+	<td>
+	    <b>Docent_id:</b>
+	 </td>
+	 <td>
+	 	 <%= @labo.docent_id %>
+	 </td>
+</tr>
+</table>
 
-<p>
-  <b>Docent:</b>
-  <%= @labo.docent_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_labo_path(@labo) %> |
-<%= link_to 'Back', labos_path %>
+<%= link_to 'Aanpassen', edit_labo_path(@labo) %> |
+<%= link_to 'Ga terug', labos_path %>
 <% end %>

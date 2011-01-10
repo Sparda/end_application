@@ -1,23 +1,33 @@
 <% if !session[:user_id] %>
-U bent niet bevoegd om deze pagina te bekijken
+U heeft niet de juiste bevoegdheid om deze pagina te bekijken
 <% else %>
 Welkom <strong><%=session[:user_id]%></strong>.
 <%= link_to "logout",:controller => "gebruikers", :action => "logout" %>
+<br /><br />
+
+<table>
+	<tr>
+		<td>U bent hier:</td>
+		<td>Aanwezigheden</td>
+	</tr>
+	<tr>
+		<td>Ga naar:</td>
+		<td>
+			<%= link_to 'Docenten', "../gebruikers" %>
+			<%= link_to 'Labos', "../labos" %>
+			<%= link_to 'Studenten', "../studentens" %></td>
+	</tr>
+</table>
 <br />
-<%= link_to 'docenten', "../gebruikers" %>
-<%= link_to 'labos', "../labos" %>
-<%= link_to 'studenten', "../studentens" %>
-aanwezigheden
-<br />
-<h1>Listing aanwezighedens</h1>
+<h1>Lijst van aanwezigheden</h1>
 
 <table>
   <tr>
-    <th>Labo</th>
-    <th>Student</th>
+    <th>Labo_id</th>
+    <th>Student_id</th>
     <th>Aanwezig</th>
     <th></th>
-    <th></th>
+    <th>Acties</th>
     <th></th>
   </tr>
 
@@ -26,14 +36,14 @@ aanwezigheden
     <td><%= aanwezigheden.labo_id %></td>
     <td><%= aanwezigheden.student_id %></td>
     <td><%= aanwezigheden.aanwezig %></td>
-    <td><%= link_to 'Show', aanwezigheden %></td>
-    <td><%= link_to 'Edit', edit_aanwezigheden_path(aanwezigheden) %></td>
-    <td><%= link_to 'Destroy', aanwezigheden, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Tonen', aanwezigheden %></td>
+    <td><%= link_to 'Aanpassen', edit_aanwezigheden_path(aanwezigheden) %></td>
+    <td><%= link_to 'Verwijderen', aanwezigheden, :confirm => 'Bent u zeker dat u dit item wil verwijderen ?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Aanwezigheden', new_aanwezigheden_path %>
+<%= link_to 'Nieuwe Aanwezigheid', new_aanwezigheden_path %>
 <% end %>

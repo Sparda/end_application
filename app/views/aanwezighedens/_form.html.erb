@@ -10,20 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :labo_id %><br />
-    <%= f.text_field :labo_id %>
-  </div>
-  <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.text_field :student_id %>
-  </div>
-  <div class="field">
-    <%= f.label :aanwezig %><br />
-    <%= f.text_field :aanwezig %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+	<tr>
+		<div class="field">
+		<td>
+			<%= f.label :labo_id %>
+		</td>
+		<td>
+			<%= f.text_field :labo_id %>
+		</td>
+		</div>
+	</tr>
+	<tr>
+		<div class="field">
+		<td>
+			<%= f.label :student_id %>
+		</td>
+		<td>
+			<%= f.text_field :student_id %>
+		</td>
+		</div>
+	</tr>
+	<tr>
+		<div class="field">
+		<td>
+			<%= f.label :aanwezig %>
+		</td>
+		<td>
+			<%= f.text_field :aanwezig %>
+		</td>
+		 </div>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td align="right">
+			 <div class="actions">
+    			<%= f.submit %>
+			  </div>
+		</td>
+	</tr>
+</table>
 <% end %>

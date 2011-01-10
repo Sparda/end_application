@@ -44,7 +44,7 @@ class LabosController < ApplicationController
 
     respond_to do |format|
       if @labo.save
-        format.html { redirect_to(@labo, :notice => 'Labo was successfully created.') }
+        format.html { redirect_to(@labo, :notice => 'Het labo is succesvol aangemaakt.') }
         format.xml  { render :xml => @labo, :status => :created, :location => @labo }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class LabosController < ApplicationController
 
     respond_to do |format|
       if @labo.update_attributes(params[:labo])
-        format.html { redirect_to(@labo, :notice => 'Labo was successfully updated.') }
+        format.html { redirect_to(@labo, :notice => 'Het labo is succesvol aangepast.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

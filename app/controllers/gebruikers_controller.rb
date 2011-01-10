@@ -60,7 +60,7 @@ end
 
     respond_to do |format|
       if @gebruiker.save
-        format.html { redirect_to(@gebruiker, :notice => 'Gebruiker was successfully created.') }
+        format.html { redirect_to(@gebruiker, :notice => 'De docent is succesvol aangemaakt.') }
         format.xml  { render :xml => @gebruiker, :status => :created, :location => @gebruiker }
       else
         format.html { render :action => "new" }
@@ -79,7 +79,7 @@ end
 
     respond_to do |format|
       if @gebruiker.update_attributes(params[:gebruiker])
-        format.html { redirect_to(@gebruiker, :notice => 'Gebruiker was successfully updated.') }
+        format.html { redirect_to(@gebruiker, :notice => 'De aanpassing was succesvol.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -125,7 +125,7 @@ if valid_user
 session[:user_id]=valid_user.voornaam
 redirect_to :action => 'index'
 else
-flash[:notice] = "Invalid User/Password"
+flash[:notice] = "Ongeldige gebruiker en/of wachtwoord"
 redirect_to :action=> 'login'
 end
   end

@@ -44,7 +44,7 @@ class AanwezighedensController < ApplicationController
 
     respond_to do |format|
       if @aanwezigheden.save
-        format.html { redirect_to(@aanwezigheden, :notice => 'Aanwezigheden was successfully created.') }
+        format.html { redirect_to(@aanwezigheden, :notice => 'Het item is succesvol aangepast.') }
         format.xml  { render :xml => @aanwezigheden, :status => :created, :location => @aanwezigheden }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class AanwezighedensController < ApplicationController
 
     respond_to do |format|
       if @aanwezigheden.update_attributes(params[:aanwezigheden])
-        format.html { redirect_to(@aanwezigheden, :notice => 'Aanwezigheden was successfully updated.') }
+        format.html { redirect_to(@aanwezigheden, :notice => 'Het item is succesvol aangepast.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
